@@ -1,6 +1,4 @@
-Here's the revised version of your guide in markdown format, suitable for inclusion in a README file. I have corrected syntax errors and clarified some steps to make them more user-friendly.
-Guide on How to Get Data from OptiTrack into ROS
-
+# OptiTrack to ROS
 This guide explains how to publish data from the OptiTrack system to a ROS core. The OptiTrack System utilizes Motive Software to interpret the data.
 1. Log into the Robotics Lab Server
 
