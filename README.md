@@ -26,7 +26,7 @@ catkin_create_pkg optitrack_ros_client std_msgs rospy roscpp <dependencies>
 ```
 4. Create a Launch Folder and File
 
-Create a launch folder in your package directory, and then create a launch file inside this folder. You can use your favorite text editor to create the file named optitrack.launch.
+Create a launch folder in your package directory, and then create a launch file inside this folder. 
 
 Here's an example of what you might include in [optitrack.launch](optitrack.launch). Remember, the IP address should be that of the computer running the Motive Software:
 
