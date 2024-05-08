@@ -68,4 +68,11 @@ Run the following command to start the node and begin receiving data from OptiTr
 
 roslaunch optitrack_ros_client optitrack.launch
 ```
-This setup should help you integrate OptiTrack data into your ROS environment efficiently. Ensure that you replace placeholders like YOUR_MOTIVE_COMPUTER_IP and <dependencies> with actual values based on your setup and requirements.
+This setup should help you integrate OptiTrack data into your ROS environment efficiently. 
+You can see the topics getting published by running the following command:
+```bash
+rostopic list | grep
+```
+
+Once you have this, you can create a script to subscribe to these topics and work with the data however you'd like.
+
