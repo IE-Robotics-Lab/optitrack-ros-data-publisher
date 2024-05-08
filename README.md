@@ -28,18 +28,36 @@ catkin_create_pkg optitrack_ros_client std_msgs rospy roscpp <dependencies>
 
 Create a launch folder in your package directory, and then create a launch file inside this folder. You can use your favorite text editor to create the file named optitrack.launch.
 
-Here's an example of what you might include in optitrack.launch. Remember, the IP address should be that of the computer running the Motive Software:
+Here's an example of what you might include in [optitrack.launch](optitrack.launch). Remember, the IP address should be that of the computer running the Motive Software:
 
 ```xml
 
 <launch>
-  <node name="vrpn_client_node" pkg="vrpn_client_ros" type="vrpn_client_node" output="screen">
-    <param name="server" value="YOUR_MOTIVE_COMPUTER_IP"/>
-    <param name="frame_id" value="world"/>
-    <!-- List your tracked objects here -->
-    <param name="tracked_objects" type="string" value="Object1, Object2"/>
+
+  <arg name="server" default="10.205.3.3"/>
+
+  <node pkg="vrpn_client_ros" type="vrpn_client_node" name="optitrack" output="screen">
+    <rosparam subst_value="true">
+      server: $(arg server)
+      port: 3883
+
+      update_frequency: 120.0
+      frame_id: world
+
+      # Use the VRPN server's time, or the client's ROS time.
+      use_server_time: false
+      broadcast_tf: true
+
+      # Must either specify refresh frequency > 0.0, or a list of trackers to create
+      refresh_tracker_frequency: 1.0
+      #trackers:
+      #- FirstTracker
+      #- SecondTracker
+    </rosparam>
   </node>
+
 </launch>
+
 ```
 
 5. Launch the Node
